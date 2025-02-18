@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { patchArticleVotes } from "../api";
 
 function VoteButton({article_id, initialVotes}){
     const [voteChange, setVoteChange] = useState(0)
