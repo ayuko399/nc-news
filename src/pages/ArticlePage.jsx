@@ -46,10 +46,10 @@ function ArticlePage(){
                     article_id={article_id}
                     onAddComment={handleAddComment}
                 />
-            <CommentList comments={comments} />
+            <CommentList comments={comments} setComments={setComments} />
             </div>
         </div>
-    )
+    )   
 }
 
 export default ArticlePage

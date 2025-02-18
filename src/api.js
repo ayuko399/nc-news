@@ -56,3 +56,17 @@ export const postComment = (article_id, { body }) => {
       throw error;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  console.log("URL being called:", `/comments/${comment_id}`);
+  return newsApi
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      console.log("Delete response:", response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error("error deleting comment", error);
+      throw error;
+    });
+};
