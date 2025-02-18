@@ -14,10 +14,10 @@ export const getArticles = (params) => {
     });
 };
 
-export const patchArticleVotes = (article_id, inc_votes) => {
+export const getArticle = (article_id) => {
   return newsApi
-    .patch(`/articles/${article_id}`, { inc_votes: inc_votes })
-    .then((response) => response.data)
+    .get(`/articles/${article_id}`)
+    .then((reponse) => reponse.data)
     .catch((error) => {
       console.error("Error updating votes:", error);
       throw error;
