@@ -1,7 +1,41 @@
 import VoteButton from "../VoteButton"
+import { useUser } from "../../contexts/UserContext"
+import { useState } from "react"
+import { deleteComment } from "../../api"
 
 
-function CommentCard ({comment}) {
+function CommentCard ({comment, onDelete}) {
+    console.log("Comment prop received:", comment)
+
+    const {user} = useUser()
+    const [isDeleting, setIsDeleting] = useState(false)
+    const [error, setError] = useState(null)
+    const [successMsg, setSuccessMsg] = useState("")
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("Starting delete process");
+        console.log("Comment ID to delete:", comment.comment_id);
+
+        setIsDeleting(true)
+        
+        deleteComment(comment.comment_id)
+        .then((response) => {
+            console.log("Delete successful, response:", response);
+            onDelete(comment.comment_id)
+            console.log("Deleted comment with ID:", comment.comment_id)
+            setSuccessMsg("Comment deleted successfully")
+        })
+        .catch((err) => {
+            console.error("Delete failed:", err)
+            setError("Failed to delete comment")
+        })
+        .finally(()=>{
+            setIsDeleting(false)
+        })
+    }
+
     return (
         <div className="comment-card">
             <div className="comment-meta">
@@ -13,6 +47,13 @@ function CommentCard ({comment}) {
                         article_id={comment.comment_id}
                         initialVotes={comment.votes}
                     />
+                    {user.username === comment.author && 
+                    <button 
+                        type="submit"
+                        className="comment-delete"
+                        onClick={handleSubmit}
+                    >
+                        delete</button>}
             </div>
         </div>
     )
