@@ -205,3 +205,45 @@
   color: #333;
   margin: 20px 0;
 }
+
+.comments-section {
+  max-width: 800px;
+  margin: 0 auto
+}
+
+.comments-list{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.comment-meta {
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.comment-author{
+  font-weight: 500;
+}
+
+.comment-body{
+  line-height: 1.5;
+  color:#333;
+  margin-bottom: 12px;
+}
+
+.comment-footer{
+  display:flex;
+  align-items: center;
+  gap: 16px;
+  color: #666;
+  font-size: 0.9rem;
+}
