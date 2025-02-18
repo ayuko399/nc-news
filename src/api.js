@@ -13,13 +13,3 @@ export const getArticles = (params) => {
       throw error;
     });
 };
-
-export const getArticle = (article_id) => {
-  return newsApi
-    .get(`/articles/${article_id}`)
-    .then((reponse) => reponse.data)
-    .catch((error) => {
-      console.error("Error fetching article", error);
-      throw error;
-    });
-};

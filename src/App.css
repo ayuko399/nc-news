@@ -186,22 +186,3 @@
 .comments-link:hover {
   text-decoration: underline;
 }
-
-.article-details {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 32px;
-  margin-bottom: 24px;
-}
-
-.article-details h1{
-  font-size: 1.8rem;
-  margin: 12px 0;
-}
-
-.article-body {
-  line-height: 1.6;
-  color: #333;
-  margin: 20px 0;
-}
