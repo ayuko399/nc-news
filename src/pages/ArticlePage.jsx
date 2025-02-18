@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import  {getArticle, getCommentsByArticleId}  from "../api"
 import ArticleDetails from "../components/ArticleDetails"
 import CommentList from "../components/comments/CommentList"
+import AddCommentForm from "../components/comments/AddCommentForm"
 
 function ArticlePage(){
     const {article_id} = useParams()
@@ -30,13 +31,23 @@ function ArticlePage(){
         })
     }, [article_id])
 
+    const handleAddComment = (newComment) => {
+        setComments((currentComments) => [newComment, ...currentComments])
+    }
+
     if (isLoading) return <p className="loading">Loading...</p>
     if (error) return <p className="error">{error}</p>
 
     return(
         <div className="article-page">
             <ArticleDetails article={article} />
+            <div className="comments-section">
+                <AddCommentForm 
+                    article_id={article_id}
+                    onAddComment={handleAddComment}
+                />
             <CommentList comments={comments} />
+            </div>
         </div>
     )
 }
