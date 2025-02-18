@@ -23,8 +23,8 @@ function Homepage(){
         })
     }, [])
 
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>{error}</div>
+    if (isLoading) return <div className="loading">Loading...</div>
+    if (error) return <div className="error">{error}</div>
 
 
     return (
