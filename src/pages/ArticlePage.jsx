@@ -12,6 +12,7 @@ function ArticlePage(){
     const [error, setError] = useState(null)
 
     useEffect(() => {
+        setIsLoading(true)
         Promise.all([
             getArticle(article_id),
             getCommentsByArticleId(article_id)
