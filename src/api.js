@@ -23,3 +23,13 @@ export const getArticle = (article_id) => {
       throw error;
     });
 };
+
+export const getCommentsByArticleId = (article_id) => {
+  return newsApi
+    .get(`/articles/${article_id}/comments`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error("Error updating votes:", error);
+      throw error;
+    });
+};

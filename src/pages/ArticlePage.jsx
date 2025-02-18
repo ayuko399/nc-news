@@ -1,23 +1,28 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import  {getArticle}  from "../api"
+import  {getArticle, getCommentsByArticleId}  from "../api"
 import ArticleDetails from "../components/ArticleDetails"
+import CommentList from "../components/comments/CommentList"
 
 function ArticlePage(){
     const {article_id} = useParams()
     const [article, setArticle] = useState({})
+    const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        getArticle(article_id)
-        .then((data) => {
-            console.log("getArticle response: ", data)
-            setArticle(data.article)
+        Promise.all([
+            getArticle(article_id),
+            getCommentsByArticleId(article_id)
+        ])
+        .then(([articleData, commentsData]) => {
+            setArticle(articleData.article)
+            setComments(commentsData.comments)
         })
         .catch((err) => {
             console.error("error: ", err)
-            setError("Failed to fetch articles")
+            setError("Failed to fetch data")
         })
         .finally(() => {
             setIsLoading(false)
@@ -30,6 +35,7 @@ function ArticlePage(){
     return(
         <div className="article-page">
             <ArticleDetails article={article} />
+            <CommentList comments={comments} />
         </div>
     )
 }
