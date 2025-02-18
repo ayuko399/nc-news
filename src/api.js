@@ -43,3 +43,16 @@ export const patchArticleVotes = (article_id, inc_votes) => {
       throw error;
     });
 };
+
+export const postComment = (article_id, { body }) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: "tickle122",
+      body: body,
+    })
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error("error posting comment", error);
+      throw error;
+    });
+};
