@@ -19,7 +19,7 @@ export const getArticle = (article_id) => {
     .get(`/articles/${article_id}`)
     .then((reponse) => reponse.data)
     .catch((error) => {
-      console.error("Error updating votes:", error);
+      console.error("Error fetching article", error);
       throw error;
     });
 };
