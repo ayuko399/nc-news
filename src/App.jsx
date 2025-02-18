@@ -12,6 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/articles/:article_id" element={<ArticlePage />} />
         </Routes>
       </div>
     </BrowserRouter>
