@@ -6,17 +6,16 @@
 }
 
 .homepage {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .homepage-title {
   font-size: 2rem;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 40px;
-  margin-top: 20px;
+  color: #333;
+  margin: 40px 0 24px 0;
+  padding: 0 20px
 }
 
 .header {
@@ -309,4 +308,75 @@
   padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topic-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.topic-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topic-link-header {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topic-link-header h2 {
+  font-size: 1.4rem;
+  color: #333;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.topic-description {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.topic-articles-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topic-info {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.topic-label {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1c1c1c
+}
+
+.article-list{
+  display:flex;
+  flex-direction: column;
+  gap: 20px
 }
