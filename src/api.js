@@ -5,6 +5,7 @@ const newsApi = axios.create({
 });
 
 export const getArticles = (params) => {
+  console.log("Fetching articles with params:", params);
   return newsApi
     .get("/articles", { params })
     .then((response) => response.data)
@@ -67,6 +68,19 @@ export const deleteComment = (comment_id) => {
     })
     .catch((error) => {
       console.error("error deleting comment", error);
+      throw error;
+    });
+};
+
+export const getTopics = () => {
+  return newsApi
+    .get("/topics")
+    .then((response) => {
+      console.log("getTopics response:", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error("error fetching topics:", error);
       throw error;
     });
 };

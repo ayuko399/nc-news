@@ -5,6 +5,8 @@ import { UserProvider } from "./contexts/UserContext";
 
 import "./App.css";
 import Header from "./components/Header";
+import TopicsPage from "./pages/TopicsPage";
+import TopicsArticlePage from "./pages/TopicsArticlePage";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/articles/:article_id" element={<ArticlePage />} />
+          <Route path="/topics" element={<TopicsPage />} />
+          <Route path="/topics/:topic_slug" element={<TopicsArticlePage/>} />
         </Routes>
       </div>
      </UserProvider>
