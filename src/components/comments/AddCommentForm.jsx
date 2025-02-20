@@ -26,7 +26,7 @@ function AddCommentForm({article_id, onAddComment}){
             setSuccessMsg("Comment posted successfully")
         })
         .catch((err) => {
-            setError("Failed to post comment. ")
+            setError(err.response.data.msg)
         })
         .finally(()=>{
             setIsSubmitting(false)
