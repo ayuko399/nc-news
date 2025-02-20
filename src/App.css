@@ -380,3 +380,45 @@
   flex-direction: column;
   gap: 20px
 }
+
+.sort-controls {
+  display:flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: white;
+}
+
+.order-button,
+.page-button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.order-button:hover,
+.sort-button:hover{
+  border-color: #bbb;
+}
+
+.pagination {
+  display:flex;
+  gap:12px;
+  margin-top: 20px;
+  padding: 0 20px
+}
+
+.page-button {
+  padding: 8px 12px;
+  border: 1ps
+}

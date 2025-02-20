@@ -10,7 +10,7 @@ export const getArticles = (params) => {
     .get("/articles", { params })
     .then((response) => response.data)
     .catch((error) => {
-      console.error("Error fetching articles:", error);
+      console.error("Full error response:", error.response);
       throw error;
     });
 };
