@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import TopicsPage from "./pages/TopicsPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import PostArticlePage from "./pages/PostArticlePage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/articles/:article_id" element={<ArticlePage />} />
           <Route path="/topics" element={<TopicsPage />} />
           <Route path="/topics/:topic_slug" element={<ArticlesPage/>} />
+          <Route path="/post" element={<PostArticlePage />}/>
           <Route path="*" element={<div className="error">Path not found</div>} />
         </Routes>
       </div>

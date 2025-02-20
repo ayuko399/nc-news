@@ -84,3 +84,15 @@ export const getTopics = () => {
       throw error;
     });
 };
+
+export const postArticle = (newArticle) => {
+  console.log("Posting new article", newArticle);
+
+  return newsApi
+    .post("/articles", newArticle)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error("error posting article");
+      throw error;
+    });
+};
