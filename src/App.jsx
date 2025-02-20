@@ -18,6 +18,7 @@ function App() {
           <Route path="/articles/:article_id" element={<ArticlePage />} />
           <Route path="/topics" element={<TopicsPage />} />
           <Route path="/topics/:topic_slug" element={<ArticlesPage/>} />
+          <Route path="*" element={<div className="error">Path not found</div>} />
         </Routes>
       </div>
      </UserProvider>
