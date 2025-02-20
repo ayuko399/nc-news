@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
 import ArticlePage from "./pages/ArticlePage";
 import { UserProvider } from "./contexts/UserContext";
 
 import "./App.css";
 import Header from "./components/Header";
 import TopicsPage from "./pages/TopicsPage";
-import TopicsArticlePage from "./pages/TopicsArticlePage";
+import ArticlesPage from "./pages/ArticlesPage";
 
 function App() {
   return (
@@ -15,10 +14,10 @@ function App() {
       <div className="app">
         <Header />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<ArticlesPage />} />
           <Route path="/articles/:article_id" element={<ArticlePage />} />
           <Route path="/topics" element={<TopicsPage />} />
-          <Route path="/topics/:topic_slug" element={<TopicsArticlePage/>} />
+          <Route path="/topics/:topic_slug" element={<ArticlesPage/>} />
         </Routes>
       </div>
      </UserProvider>
