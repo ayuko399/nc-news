@@ -17,7 +17,7 @@ function Pagination ({totalCount}) {
 
     return (
         <div className="pagination">
-            {console.log("currentPage:", currentPage, "totalPages:", totalPages)};
+            {console.log("currentPage:", currentPage, "totalPages:", totalPages)}
             <button
                 onClick={()=>handlePageChange(currentPage-1)}
                 disabled={currentPage === 1}
