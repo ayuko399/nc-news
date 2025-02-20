@@ -26,11 +26,15 @@ function ArticlesPage(){
  
         getArticles(params)
         .then((data)=> {
-            setArticles(data.articles.articles)
+            if (!data.articles || !data.articles.articles){
+                setArticles([])
+            } else {
+                setArticles(data.articles.articles)
+            }
             setTotalCount(data.articles.total_count)
         })
         .catch((err) => {
-            setError("Failed to fetch articles")
+            setError(err.response.data.msg)
         })
         .finally(() => {
             setIsLoading(false)

@@ -24,7 +24,7 @@ function ArticlePage(){
         })
         .catch((err) => {
             console.error("error: ", err)
-            setError("Failed to fetch data")
+            setError(err.response.data.msg)
         })
         .finally(() => {
             setIsLoading(false)

@@ -14,7 +14,7 @@ function TopicsPage(){
             setTopics(data.topics)
         })
         .catch((err) => {
-            setError("Failed to fetch topics")
+            setError(err.response.data.msg)
         })
         .finally(()=>{
             setIsLoading(false)
