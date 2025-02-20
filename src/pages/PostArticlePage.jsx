@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { getTopics, postArticle } from "../api"
 import { useUser } from "../contexts/UserContext"
+import { useNavigate } from "react-router-dom";
 
 function PostArticlePage () {
+    const navigate = useNavigate()
     const { user } = useUser();
     const [title, setTitle] = useState("")
     const [topic, setTopic] = useState("")
@@ -51,11 +53,14 @@ function PostArticlePage () {
 
         postArticle(newArticle)
         .then((data)=>{
-            setArticleId(data.article_id)
             setSuccessMsg("Article posted successfully")
             setTitle("")
             setBody("")
             setTopic("")
+
+            setTimeout(()=>{
+                navigate(`/articles/${data.article.article_id}`)
+            }, 2000)
         })
         .catch((err) => {
             setError(err.response.data.msg)
