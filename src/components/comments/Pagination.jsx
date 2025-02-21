@@ -30,7 +30,7 @@ function Pagination ({totalCount}) {
                 disabled={currentPage === totalPages}
                 className="page-button"
             >
-                next
+                Next
             </button>
         </div>
     )

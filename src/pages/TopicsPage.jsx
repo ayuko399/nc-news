@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import TopicList from "../components/topics/TopicList";
+import Loading from "../components/loading/Loading";
+import ErrorMsg from "../components/loading/ErrorMsg";
 
 function TopicsPage(){
     const [topics, setTopics] = useState([])
@@ -20,6 +22,9 @@ function TopicsPage(){
             setIsLoading(false)
         })
     }, [])
+
+    if (isLoading) return <Loading />
+    if (error) return <ErrorMsg message={error} />
 
     return (
         <div className="homepage">

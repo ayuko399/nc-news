@@ -4,6 +4,8 @@ import { getArticles } from "../api";
 import ArticleList from "../components/ArticleList";
 import SortControls from "../components/comments/SortControls";
 import Pagination from "../components/comments/Pagination";
+import Loading from "../components/loading/Loading";
+import ErrorMsg from "../components/loading/ErrorMsg";
 
 function ArticlesPage(){
     const {topic_slug} = useParams()
@@ -41,8 +43,8 @@ function ArticlesPage(){
         })
     }, [topic_slug, searchParams])
 
-    if (isLoading) return <p className="loading">Loading...</p>
-    if (error) return <p className="error">{error}</p>
+    if (isLoading) return <Loading />
+    if (error) return <ErrorMsg message={error} />
 
 
     return (

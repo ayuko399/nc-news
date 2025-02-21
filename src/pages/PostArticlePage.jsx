@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getTopics, postArticle } from "../api"
 import { useUser } from "../contexts/UserContext"
 import { useNavigate } from "react-router-dom";
+import ErrorMsg from "../components/loading/ErrorMsg";
 
 function PostArticlePage () {
     const navigate = useNavigate()
@@ -98,7 +99,7 @@ function PostArticlePage () {
                 {isSubmitting ? "Posting..." : "Submit"}
             </button>
         </form>
-        {error && <p className="error">{error}</p>}
+        {error && <ErrorMsg message={error} />}
         {successMsg && <p className="success">{successMsg}</p>}
       </div>
     )
