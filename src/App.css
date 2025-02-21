@@ -328,7 +328,9 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.topic-card:hover {
+.topic-card:hover,
+.article-card:hover
+ {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -483,4 +485,24 @@
   text-align: center;
   padding: 10px;
   margin-top: 10px;
+}
+
+.avatar-container {
+  display:flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import TopicsPage from "./pages/TopicsPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import PostArticlePage from "./pages/PostArticlePage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/topics" element={<TopicsPage />} />
           <Route path="/topics/:topic_slug" element={<ArticlesPage/>} />
           <Route path="/post" element={<PostArticlePage />}/>
+          <Route path="/users" element={<ProfilePage />} />
           <Route path="*" element={<div className="error">Path not found</div>} />
         </Routes>
       </div>
