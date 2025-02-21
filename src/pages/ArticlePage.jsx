@@ -4,6 +4,8 @@ import  {getArticle, getCommentsByArticleId}  from "../api"
 import ArticleDetails from "../components/ArticleDetails"
 import CommentList from "../components/comments/CommentList"
 import AddCommentForm from "../components/comments/AddCommentForm"
+import Loading from "../components/loading/Loading"
+import ErrorMsg from "../components/loading/ErrorMsg"
 
 function ArticlePage(){
     const {article_id} = useParams()
@@ -35,8 +37,8 @@ function ArticlePage(){
         setComments((currentComments) => [newComment, ...currentComments])
     }
 
-    if (isLoading) return <p className="loading">Loading...</p>
-    if (error) return <p className="error">{error}</p>
+    if (isLoading) return <Loading />
+    if (error) return <ErrorMsg message={error} />
 
     return(
         <div className="article-page">

@@ -15,16 +15,12 @@ function CommentCard ({comment, onDelete}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Starting delete process");
-        console.log("Comment ID to delete:", comment.comment_id);
 
         setIsDeleting(true)
         
         deleteComment(comment.comment_id)
         .then((response) => {
-            console.log("Delete successful, response:", response);
             onDelete(comment.comment_id)
-            console.log("Deleted comment with ID:", comment.comment_id)
             setSuccessMsg("Comment deleted successfully")
         })
         .catch((err) => {

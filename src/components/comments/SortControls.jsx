@@ -7,8 +7,6 @@ function SortControls(){
 
     const handleSortChange = (e) => {
 
-        console.log("Changing sort to:", e.target.value);
-
         const newParams = new URLSearchParams(searchParams)
         newParams.set("sort_by", e.target.value)
         newParams.set("order", currentOrder)

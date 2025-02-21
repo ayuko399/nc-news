@@ -4,7 +4,6 @@ function CommentList({comments, setComments}) {
     if (!comments.length) return <p>No comments yet. Be the first to comment</p>
 
     const handleDeleteComment = (comment_id) => {
-        console.log("handleDeleteComment called with:", comment_id)
         setComments(comments.filter(comment => comment.comment_id !== comment_id))
     }
 
